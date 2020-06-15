@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Windows.Forms;
 
 namespace Chain_of_Responsibility
 {
-    public class TextPreviewer : Previewer
+    public class TextPreview : Previewer
     {
         public override void HandleFileType(OpenFileDialog ofd, Form form)
         {
