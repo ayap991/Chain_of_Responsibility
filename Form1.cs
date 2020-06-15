@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chain_of_Responsibility
@@ -21,7 +14,13 @@ namespace Chain_of_Responsibility
         {
             if(ofd.ShowDialog() == DialogResult.OK)
             {
-                //
+                Previewer textPreviewer, bitmapPreviewer, binaryPreviewer;
+                textPreviewer = new TextPreview();
+                bitmapPreviewer = new BitmapPreview();
+                binaryPreviewer = new BinaryPreview();
+                textPreviewer.SetNextPreviewer(bitmapPreviewer);
+                bitmapPreviewer.SetNextPreviewer(binaryPreviewer);
+                textPreviewer.HandleFileType(ofd, this);
             }
 
         }
